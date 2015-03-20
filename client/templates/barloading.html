@@ -1,0 +1,55 @@
+<template name="barloading">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+
+            <h1>Bar Loading</h1>
+            <h2>What weight are you using?</h2>
+            <form>
+                <div class="form-group">
+                    <label for="oneRepMax">What is your one rep max?</label>
+                    <input type="number" class="form-control" id="oneRepMax" />
+
+                    <label for="barWeight">What is the weight of your bar?</label>
+                    <input type="number" class="form-control" id="barWeight" />
+                </div>
+
+                <h2>What Percentages are you doing?</h2>
+                <p>Type a percentage, press enter, or click add. To remove a percentage, just click on it!</p>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="percent" placeholder="Enter a percent">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" id='addPercent' type="button">Add</button>
+                        </span>
+                    </div>
+                </div>
+                <ul class="list-group" id="percentList">
+                    {{#each percents}}
+                    <li class="list-group-item">{{percent}}%</li>
+                    {{/each}}
+                </ul>
+                <input class="btn btn-primary btn-lg" id="calculate" value="Calculate!" />
+            </form>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <h2>Results:</h2>
+            <!--<div class="list-group">-->
+                {{#each loading}}
+                <!--<div class="list-group-item">-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{percent}}%</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p><b>Target Weight: </b>{{targetWeight}}</p>
+                            <p><b>Bar Loading: </b>{{barLoad}}</p>
+                            <p><b>Actual Weight: </b>{{actualWeight}}</p>
+                        </div>
+                    </div>
+                <!--</div>-->
+                {{/each}}
+            <!--</div>-->
+        </div>
+    </div>
+</template>
