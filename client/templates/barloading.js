@@ -119,10 +119,14 @@ Template.barloading.events({
                 }
             }
             // Calculate actual loaded weight
-            if (roundUp)
-                loading.actualWeight = loading.targetWeight - barWeight + 5;
-            else
-                loading.actualWeight = loading.targetWeight - barWeight;
+            loading.actualWeight = Number(barWeight) +
+                                   Number(loading.p45 * 45) +
+                                   Number(loading.p35 * 35) +
+                                   Number(loading.p25 * 25) +
+                                   Number(loading.p15 * 15) +
+                                   Number(loading.p10 * 10) +
+                                   Number(loading.p5  *  5) +
+                                   Number(loading.p2  * 2.5);
 
             // Insert into loadings collection
             Loadings.insert(loading);
