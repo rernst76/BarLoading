@@ -13,7 +13,7 @@ Template.barloading.helpers({
         return this.targetWeight.toFixed(2);
     },
     barLoad: function() {
-        var bar = '▬▬';
+        var bar = '===';
         
         // Store amount of plates
         var p = [this.p45, this.p35, this.p25, this.p15,
