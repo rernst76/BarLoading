@@ -59,7 +59,6 @@ Template.barloading.events({
         var barWeight = $('#barWeight').val();
 
         var loadWeight;
-        var roundUp = false;
 
         // Calculate loading for each percentage
         Percentages.find().forEach(function(obj) {
@@ -79,7 +78,6 @@ Template.barloading.events({
             // Use greedy algorithm for building bar
             if (loadWeight % 5 > 2.5) {
                 loadWeight += 5;
-                roundUp = true;
             }
             while (loadWeight >= 5) {
                 if (loadWeight >= 90) {
@@ -120,13 +118,13 @@ Template.barloading.events({
             }
             // Calculate actual loaded weight
             loading.actualWeight = Number(barWeight) +
-                                   Number(loading.p45 * 45) +
-                                   Number(loading.p35 * 35) +
-                                   Number(loading.p25 * 25) +
-                                   Number(loading.p15 * 15) +
-                                   Number(loading.p10 * 10) +
-                                   Number(loading.p5  *  5) +
-                                   Number(loading.p2  * 2.5);
+                                   Number(loading.p45 * 45.0) +
+                                   Number(loading.p35 * 35.0) +
+                                   Number(loading.p25 * 25.0) +
+                                   Number(loading.p15 * 15.0) +
+                                   Number(loading.p10 * 10.0) +
+                                   Number(loading.p5  *  5.0) +
+                                   Number(loading.p2  *  2.5);
 
             // Insert into loadings collection
             Loadings.insert(loading);
